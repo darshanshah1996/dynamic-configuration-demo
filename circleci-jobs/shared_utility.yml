@@ -1,0 +1,24 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+  browser-tools: circleci/browser-tools@1.4.0
+
+parameters:
+  config_txt:
+    type: string
+    default: sanity
+
+docker_images: &docker_images
+  docker:
+    - image: circleci/node:lts-browsers
+
+working_directory: &working_directory
+  working_directory: ~/demo-automation-project/  # name of your project directory
+
+commands:
+  install:
+    steps:
+      - checkout
+      - node/install-packages
+      - browser-tools/install-chrome

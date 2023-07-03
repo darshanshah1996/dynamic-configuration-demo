@@ -1,0 +1,18 @@
+jobs:
+  staging-regression:
+    <<: *docker_images
+    <<: *working_directory
+    steps:
+      - install
+      - run:
+          command: ENV=stage npx wdio --suite stagingRegression;
+
+workflows:
+  version: 2
+  Staging Regression:
+    jobs:
+      - staging-regression:
+          filters:
+            branches:
+              only:
+                - staging-regression # Branch name on which the job needs to be executed
