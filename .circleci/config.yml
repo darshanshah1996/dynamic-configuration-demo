@@ -1,0 +1,37 @@
+version: 2.1
+
+# this allows you to use CircleCI's dynamic configuration feature
+setup: true
+
+# the continuation orb is required in order to use dynamic configuration
+orbs:
+  node: circleci/node@5.0.2
+  continuation: circleci/continuation@0.1.2
+
+parameters:
+  config_txt:
+    type: string
+    default: sanity
+
+# our defined job, and its steps
+jobs:
+  setup:
+    docker:
+      - image: circleci/node:lts-browsers
+    executor: continuation/default
+    steps:
+      - checkout # checkout code
+      - run: # run a command
+          name: Generate config
+          command: |
+            node ./circleci-jobs/generate_config_script.js > generated_config.yml
+          environment:
+            CONFIG_TXT: << pipeline.parameters.config_txt >>
+      - continuation/continue:
+          configuration_path: generated_config.yml # use newly generated config to continue
+
+# our single workflow, that triggers the setup job defined above
+workflows:
+  setup:
+    jobs:
+      - setup

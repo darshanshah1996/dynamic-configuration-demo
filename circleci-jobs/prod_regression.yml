@@ -1,0 +1,18 @@
+jobs:
+  prod-regression:
+    <<: *docker_images
+    <<: *working_directory
+    steps:
+      - install
+      - run:
+          command: ENV=stage npx wdio --suite prodRegression;
+
+workflows:
+  version: 2
+  prod Regression:
+    jobs:
+      - prod-regression:
+          filters:
+            branches:
+              only:
+                - prod-regression # Branch name on which the job needs to be executed
