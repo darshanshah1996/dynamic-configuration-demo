@@ -15,4 +15,4 @@ workflows:
           filters:
             branches:
               only:
-                - prod-regression # Branch name on which the job needs to be executed
+                - prod # Branch name on which the job needs to be executed
