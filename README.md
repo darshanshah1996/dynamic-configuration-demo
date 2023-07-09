@@ -17,9 +17,9 @@
 1. To run a spec suite, execute command `npx wdio --suite <suite name>`
 
 
-#### Generate Conig File Locally For Sepcific Job
+#### Generate Config File Locally For Sepcific Job
 
 ---
 
-1. To generate confic file for running sanity workflow
+1. To generate config file for running sanity workflow
    `CONFIG_TXT=sanity node generate_confg_script.js`
