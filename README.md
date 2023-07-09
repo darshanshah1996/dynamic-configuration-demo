@@ -17,7 +17,7 @@
 1. To run a spec suite, execute command `npx wdio --suite <suite name>`
 
 
-#### Generate Config File Locally For Sepcific Job
+#### Generate Config File Locally For Specific Job
 
 ---
 
