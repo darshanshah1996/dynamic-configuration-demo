@@ -16,6 +16,7 @@ workflows:
       - sanity:
           filters:
             branches:
-              only:
-                - sanity # Branch name on which the job needs to be executed
+              ignore: # List of branches on which the job should not run
+                - master
+                - sanity 
 
