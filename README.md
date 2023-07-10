@@ -1,3 +1,3 @@
 # Dynamic Configuration Demo
 
-Demo project for implementing Dynamic Configuration In CircleCI
+Demo project for implementing Dynamic Configuration in CircleCI
