@@ -15,4 +15,4 @@ workflows:
           filters:
             branches:
               only:
-                - staging-regression # Branch name on which the job needs to be executed
+                - staging # Branch name on which the job needs to be executed

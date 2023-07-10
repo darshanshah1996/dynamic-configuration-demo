@@ -6,8 +6,6 @@ jobs:
       - install
       - run:
           command: ENV=stage npx wdio --suite sanity
-      - store_artifacts:
-          path: ~/ll-automation/reports/
 
 workflows:
   version: 2
@@ -18,5 +16,4 @@ workflows:
             branches:
               ignore: # List of branches on which the job should not run
                 - master
-                - sanity 
-
+                - staging
