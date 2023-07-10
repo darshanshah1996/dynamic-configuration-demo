@@ -5,11 +5,11 @@ jobs:
     steps:
       - install
       - run:
-          command: ENV=stage npx wdio --suite prodRegression;
+          command: ENV=prod npx wdio --suite prodRegression;
 
 workflows:
   version: 2
-  prod Regression:
+  Prod Regression:
     jobs:
       - prod-regression:
           filters:
